@@ -8,6 +8,8 @@ const makeFilePath = (template_dir, name) => {
     return `${template_dir}${name}.html`
 }
 
+app.use('/public', express.static(__dirname+'/public'))
+
 app.get('/', (req, res)=> {
     res.sendFile(makeFilePath(templates_dir, 'index'))
 })

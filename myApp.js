@@ -2,8 +2,14 @@ let express = require('express');
 let app = express();
 console.log("Hello World");
 
+templates_dir = __dirname + '/views/'
+
+const makeFilePath = (template_dir, name) => {
+    return `${template_dir}${name}.html`
+}
+
 app.get('/', (req, res)=> {
-    res.send('Hello Express')
+    res.sendFile(makeFilePath(templates_dir, 'index'))
 })
 
 

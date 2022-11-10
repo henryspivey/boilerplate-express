@@ -14,6 +14,10 @@ app.get('/', (req, res)=> {
     res.sendFile(makeFilePath(templates_dir, 'index'))
 })
 
+app.get('/json', (req, res) => {
+    res.json({"message": "Hello json"})
+})
+
 
 
 

@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express();
 require('dotenv').config()
-
+const bodyParser = require('body-parser');
 templates_dir = __dirname + '/views/'
 
 const makeFilePath = (template_dir, name) => {
@@ -9,6 +9,7 @@ const makeFilePath = (template_dir, name) => {
 }
 
 app.use('/public', express.static(__dirname+'/public'))
+app.use(bodyParser.urlencoded({extended:false}))
 
 app.all('*',(req, res, next)=>{
     const method = req.method

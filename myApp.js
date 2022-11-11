@@ -28,14 +28,14 @@ app.get('/json', (req, res) => {
     res.json({"message": message})
 })
 
-
-
-
-
-
-
-
-
+app.get('/now', (req, res, next) => {
+    // const time = req.time
+    req.time = new Date().toString()
+    res.locals.time = req.time
+    next()
+}, (req, res, next) => {
+    res.json({'time':res.locals.time})
+})
 
 
 
